@@ -4,7 +4,17 @@ const form = document.getElementById('form')
 
 fetch("http://localhost3000/monsters")
 .then (response => response.text())
-.then (data => {}
+.then (data => {
+    let monsterArray = data.slice(0,50).map((item) => {
+        let monsterObject = {
+        Name: item.name,
+        Age: item.age,
+        Description: item.description
+        }
+        return monsterObject
+    })
+    appendData(monsterArray)
+})
 
 //load first 50 monsters to page on load
      //create globally scoped array
