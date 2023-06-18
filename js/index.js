@@ -1,21 +1,19 @@
 let monsterArray = []
 const monsterContainer = document.getElementById('monster-container')
 const form = document.getElementById('form')
-
-fetch("http://localhost3000/monsters")
-.then (response => response.text())
-.then (data => {
-    let monsterArray = data.slice(0,50).map((item) => {
+fetch('http://localhost:3000/monsters')
+.then((res) => res.json())
+.then((res) => {
+    monsterArray = data.slice(0,50).map((info) => {
         let monsterObject = {
-        Name: item.name,
-        Age: item.age,
-        Description: item.description
+            Name: info.name,
+            Age: info.age,
+            Description: info.description
         }
         return monsterObject
     })
     appendData(monsterArray)
-})
-
+}
 //load first 50 monsters to page on load
      //create globally scoped array
      //GET fetch data and parse to json
