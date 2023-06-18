@@ -1,7 +1,10 @@
 let monsterArray = []
+const monsterContainer = document.getElementById('monster-container')
+const form = document.getElementById('form')
+
 fetch("http://localhost3000/monsters")
 .then (response => response.text())
-.then (data => console.log(data))
+.then (data => {}
 
 //load first 50 monsters to page on load
      //create globally scoped array
